@@ -8,7 +8,7 @@
 	<parent>
 		<artifactId>nephele</artifactId>
 		<groupId>eu.stratosphere</groupId>
-		<version>0.4-SNAPSHOT</version>
+		<version>0.4-hadoop2-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 
@@ -33,7 +33,7 @@
 			<activation>
 				<property>
 					<!-- Please do not remove the 'hadoop1' comment. See ./tools/generate_specific_pom.sh -->
-					<!--hadoop1--><name>!hadoop.profile</name>
+					<name>hadoop.profile</name><value>1</value>
 				</property>
 			</activation>
 			<dependencies>
@@ -49,7 +49,7 @@
 			<activation>
 				<property>
 					<!-- Please do not remove the 'hadoop1' comment. See ./tools/generate_specific_pom.sh -->
-					<!--hadoop2--><name>hadoop.profile</name><value>2</value>
+					<name>!hadoop.profile</name>
 				</property>
 			</activation>
 			<dependencies>
