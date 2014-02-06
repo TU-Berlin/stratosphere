@@ -12,7 +12,7 @@
 
 	<groupId>eu.stratosphere</groupId>
 	<artifactId>stratosphere</artifactId>
-	<version>0.5-SNAPSHOT</version>
+	<version>0.5-hadoop2-SNAPSHOT</version>
 
 	<name>stratosphere</name>
 	<packaging>pom</packaging>
@@ -53,7 +53,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<hadoop-one.version>1.2.1</hadoop-one.version>
-		<hadoop-two.version>2.2.0</hadoop-two.version>
+		<hadoop-two.version>2.0.0-cdh4.2.0</hadoop-two.version>
 	</properties>
 
 	<pluginRepositories>
@@ -140,7 +140,7 @@
 			<activation>
 				<property>
 					<!-- Please do not remove the 'hadoop1' comment. See ./tools/generate_specific_pom.sh -->
-					<!--hadoop1--><name>!hadoop.profile</name>
+					<name>hadoop.profile</name><value>1</value>
 				</property>
 			</activation>
 			<properties>
@@ -162,7 +162,7 @@
 			<activation>
 				<property>
 					<!-- Please do not remove the 'hadoop1' comment. See ./tools/generate_specific_pom.sh -->
-					<!--hadoop2--><name>hadoop.profile</name><value>2</value>
+					<name>!hadoop.profile</name>
 				</property>
 			</activation>
 			<properties>
@@ -253,6 +253,19 @@
 	  </dependency>
 		</dependencies>
 	</dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>cloudera-releases</id>
+            <url>https://repository.cloudera.com/artifactory/cloudera-repos</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
 	<reporting>
 		<plugins>
