@@ -282,6 +282,7 @@ public class TableInputFormat implements InputFormat<PactRecord, TableInputSplit
 
 		Scan sc = new Scan(this.scan);
 		sc.setStartRow(split.getStartRow());
+        sc.setStopRow(split.getEndRow());
 		LOG.info("split start row: " + new String(split.getStartRow()));
 		sc.setStopRow(split.getEndRow());
 		LOG.info("split end row: " + new String(split.getEndRow()));
